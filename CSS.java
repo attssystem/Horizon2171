@@ -17,6 +17,51 @@ public class CSS {
 		temp = sc.next();
 		
 		// Story block (just copy for each step)
+		System.out.println("Soif...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println("Faim...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println("Mal aux jambes...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println("Rythme effréné...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println("Respiration douloureuse...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
 		status = storyBlock(chap1, "RESTER", "FUIR", 0, 0, 0, 0, 0, 0, status, chap, sc);
 		if(status[0] == 2) {
 			System.out.println("Vous n’avez pas le temps d’esquisser deux pas que le\nSans-Voix à votre gauche vous retient par le bras dans un\nmouvement mécanique d’une rapidité insoupçonnable.\nSans brusquerie mais non sans fermeté,\nvous vous retrouvez à votre place initiale. Toujours\nsans un mot ni un regard.\n");
