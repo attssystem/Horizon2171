@@ -81,6 +81,8 @@ public class CSS {
 	
 	// Story block (just copy for each step)
 	public static int[] storyBlock(String script, String choice1, String choice2, int humanity1, int relationship1, int networkStatus1, int humanity2, int relationship2, int networkStatus2 , int[] status, int chap, Scanner sc) {
+		Scanner story = new Scanner (script);
+		story.useDelimiter("\n");
 		boolean loop = true;
 		String input = "";
 		String error = "";
@@ -123,7 +125,14 @@ public class CSS {
 		
 		// Story loop (loop in case of wrong input)
 		while(loop) {
-			System.out.println(script);
+			while(story.hasNext()){
+				System.out.println(story.next());
+				try{
+					Thread.sleep(250);
+				}catch(InterruptedException ex){
+					Thread.currentThread().interrupt();
+				}
+			}
 			System.out.println(error);
 			input = sc.next();
 			// Update status bars
