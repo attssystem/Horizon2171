@@ -5,4 +5,4 @@ This french game tells you the story of a futuristic dystopic world. You personi
 
 ## After compiling you can create an executable jar using this command
 
-'jar cvfm MANIFEST.MF Horizon2171.jar CSS.class' 
+`jar cvfm MANIFEST.MF Horizon2171.jar CSS.class` 
