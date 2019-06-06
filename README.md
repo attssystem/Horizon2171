@@ -5,3 +5,10 @@ This french game tells you the story of a futuristic dystopic world. You personi
 ## Jar creation reminder
 
 `jar cvfm MANIFEST.MF Horizon2171.jar CSS.class` 
+
+## Authors
+
+- Hugues KADI | ATTSSystem
+Program
+- Camille MARTIN | AstraleK
+Script
