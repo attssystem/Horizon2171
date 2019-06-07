@@ -22,9 +22,14 @@ public class CSS {
 		temp = sc.next();
 		clearScreen();
 		
+		// Tutorial
+		
+		noChoiceStory("Bienvenue dans Horizon2171, vous incarnez un habitant de la Cité Résistante de l'Ancienne France et aurez à faire des choix pour avancer dans votre aventure ! Pour ce faire, à chaque fin de chapitre il vous sera demandé de faire un choix, veuillez à ce moment taper votre choix (en respectant les majuscules) puis confirmez avec Entrée. Bonne chance dans votre aventure !\n Hugues KADI (Programmeur et un peu auteur) &\nCamille MARTIN (Auteure et un peu programmeuse) ", sc);
+		System.out.println("\n");
+		
 		// Name choice
 		
-		System.out.print("Comment vous appelez-vous ?>");
+		System.out.print("Mais d'abord, comment vous appelez-vous ?>");
 		name = sc.next();
 		clearScreen();
 		
@@ -247,9 +252,9 @@ public class CSS {
 	public static int[] chapter(int[] status) {
 		System.out.println();
 		System.out.println();
-		System.out.println("----------------------------------------------------------------------------------------------------------------");
-		System.out.println("                                             HORIZON 2171 : "+status[7]);
-		System.out.println("----------------------------------------------------------------------------------------------------------------");
+		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("                             HORIZON 2171 : "+status[7]);
+		System.out.println("-----------------------------------------------------------------------------------------");
 		System.out.println();
 		System.out.println();
 		
