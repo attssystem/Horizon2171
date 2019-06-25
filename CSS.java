@@ -15,7 +15,7 @@ public class CSS {
 		String temp;
 		String name = "";
 		String nameW = "";
-		int status[] = {0, 0, 0, 20, 0, 0, 0, 1}; // choice boolean, humanity, relationship, network state, humanity display, relationship display, network state display, chapter
+		int status[] = {0, 0, 0, 0, 1, 1, 1, 1}; // choice boolean, humanity, relationship, network state, humanity display, relationship display, network state display, chapter
 		
 		// Main menu
 		System.out.println(logo);
@@ -24,8 +24,8 @@ public class CSS {
 		
 		// Tutorial
 		
-		noChoiceStory("Bienvenue dans Horizon2171, vous incarnez un habitant de la Cité Résistante de l'Ancienne France et aurez à faire des choix pour avancer dans votre aventure ! Pour ce faire, à chaque fin de chapitre il vous sera demandé de faire un choix, veuillez à ce moment taper votre choix (en respectant les majuscules) puis confirmez avec Entrée. Bonne chance dans votre aventure !\n Hugues KADI (Programmeur et un peu auteur) &\nCamille MARTIN (Auteure et un peu programmeuse) ", sc);
-		System.out.println("\n");
+		splitString("Bienvenue dans Horizon2171, vous incarnez un habitant de la Cité Résistante de l'Ancienne France et aurez à faire des choix pour avancer dans votre aventure ! Pour ce faire, à chaque fin de chapitre il vous sera demandé de faire un choix, veuillez à ce moment taper votre choix (en respectant les majuscules) puis confirmez avec Entrée. Bonne chance dans votre aventure !\n Hugues KADI (Programmeur et un peu auteur) &\nCamille MARTIN (Auteure et un peu programmeuse)", sc);
+		System.out.println("\nNOTES IMPORTANTES :\n_En fin de paragraphe (et du jeu) tapez \"s\" puis Entrée\n_Tapez vos choix en recopiant précisément la proposition choisie\n");
 		
 		// Name choice
 		
@@ -71,49 +71,49 @@ public class CSS {
 		status = storyBlock(chap1, "RESTER", "FUIR", 0, 0, 0, 0, 0, 0, status, sc);
 		status = chapter(status);
 		if(status[0] == 2) {
-			noChoiceStory(chap1_choice, sc);
+			splitString(chap1_choice, sc);
 		}
 		storyBlock(chap2, "REPONDRE", "IGNORER", 0, 0, 0, 0, 0, 0, status, sc);
 		status = chapter(status);
 		if(status[0] == 1) {
-			noChoiceStory(chap2_choice, sc);
+			splitString(chap2_choice, sc);
 		}
 		storyBlock(chap3, "CONTINUER", "RENCONTRE", 0, 0, 0, 0, 0, 0, status, sc);
 		status = chapter(status);
 		if(status[0] == 1) {
-			noChoiceStory(chap3_choice, sc);
+			splitString(chap3_choice, sc);
 		}
 		storyBlock(chap4, "AGGRESSIF", "CALME", 0, 0, 0, 0, 2, 0, status, sc);
 		status = chapter(status);
 		if(status[0] == 1) {
-			noChoiceStory(chap4_choice, sc);
+			splitString(chap4_choice, sc);
 		}
 		status[1] =+ 2;
 		storyBlock(chap5, "DROITE", "GAUCHE", 0, 0, 0, 0, 0, 0, status, sc);
 		if(status[0] == 1) {
-			noChoiceStory(chap5_choice1, sc);
+			splitString(chap5_choice1, sc);
 		}else{
 			storyBlock(chap5_choice2, "SE_CACHER", "COURIR", 0, 0, 0, 0, 0, 0, status, sc);
 			if(status[0] == 1) {
-				noChoiceStory(chap5_choice2_choice1, sc);
+				splitString(chap5_choice2_choice1, sc);
 			}else{
-				noChoiceStory(chap5_choice1, sc);
+				splitString(chap5_choice1, sc);
 			}
 		}
 		status = chapter(status);
 		storyBlock(chap6, "DETOUR", "DIRECT", 0, 0, 0, 0, 0, 0, status, sc);
 		if(status[0] == 1) {
-			noChoiceStory(chap6_choice, sc);
+			splitString(chap6_choice, sc);
 		}
 		status = chapter(status);
-		storyBlock(chap7, "PRENDRE_UNE_BIERE", "DEUX_BIERES", 0, 0, 0, 0, 0, 0, status, sc);
+		storyBlock(chap7, "PRENDRE_DEUX_BIERES", "UNE_BIERES", 0, 0, 0, 0, 0, 0, status, sc);
 		if(status[0] == 1) {
-			noChoiceStory(chap7_choice, sc);
+			splitString(chap7_choice, sc);
 		}
 		status = chapter(status);
 		storyBlock(chap8, "SE_DEFENDRE", "ETRE_HONNETE", 0, 0, 0, 0, 0, 0, status, sc);
 		if(status[0] == 1) {
-			noChoiceStory(chap8_choice, sc);
+			splitString(chap8_choice, sc);
 		}
 		status = chapter(status);
 		storyBlock(chap9, "COUTEAU", "FLINGUE", 0, 0, 0, 0, 0, 0, status, sc);
@@ -125,12 +125,12 @@ public class CSS {
 		status = chapter(status);
 		storyBlock(chap10, "S_INTERPOSER", "NE_RIEN_DIRE", 0, 0, 0, 0, 0, 0, status, sc);
 		if(status[0] == 1) {
-			noChoiceStory(chap10_choice1, sc);
+			splitString(chap10_choice1, sc);
 		}else{
-			noChoiceStory(chap10_choice2, sc);
+			splitString(chap10_choice2, sc);
 		}
 		status = chapter(status);
-		noChoiceStory(chap11_1, sc);
+		splitString(chap11_1, sc);
 		System.out.print("Comment voulez-vous l'appeler ?>");
 		nameW = sc.next();
 		// Create strings now to add the names
@@ -139,26 +139,19 @@ public class CSS {
 		String chap12 = "Le bâtiment s'étendait à perte de vue, dans toute sa verticalité, la cime perdue dans les nuages. Le temps était orageux, comme fougueux, sauvage, en adéquation avec votre ressenti actuel. Vous en etes sûr, vous allez réussir. Là-haut se trouve la clé pour mettre fin à tout ça, pour que l'Homme redevienne humain ; la société, humanité. Vous regardez "+nameW+" dans les yeux. Vous avez fait du chemin depuis la toute première fois où vous l'avez rencontrée, dans cette sombre allée blanche. Vous avez petit à petit appris à communiquer, à vous connaître, à vous apprendre, à vous apprécier et maintenant… à vous aimer. Pourtant quelque chose reste coincé en elle. Oui, vous pouvez à présent apprécier le grain de sa peau, ses cheveux en bataille, ses lèvres gercées, l'éclat de ses yeux vert, et tous ces petits défauts qui sont finalement la qualité la plus précieuse de l'être humain. Mais si vous cherchez bien, il reste quelque chose de flou, d'obscure dans cet éclat. Un démon invisible, invincible.  Plus pour longtemps. Vous lui en avait fait la promesse. Vous allez détruire cette Puce, et tout ce qu'elle a engendré. Il faudrait sans doute du temps pour que le contact et les sentiments renaissent au sein de cette société meurtrie. Mais ça reviendra, vous en etes certain. "+nameW+" en est la preuve.\n"+nameW+" soupire à côté de vous. Vous lui prenez la main. Ça va aller. De l'autre, vous lui tendez le [COUTEAU ou FLINGUE]. Elle savait bien mieux le manier que vous, même si vous pensez ne pas en avoir besoin. Vous pénétrez ensemble à l'intérieur du bâtiment. Vous vous sentez comme dans un mauvais film d'action pour adolescent, très en vogue au 21ème siècle : Sauver le monde et mettre fin à la tyrannie. Ce genre de film finit toujours bien de façon générale. Plus qu'à réitérer le scénario.\nSans surprise, il n'y a personne à l'intérieur. Il se trouve effet que les Sans-Voix n'utilisent aucun moyen de sécurité. Pas la peine, puisque tout individu est contrôlé depuis la Puce. Quant aux Sans-Puce, il leur est impossible de passer les lourdes portes blindées dont seuls les Sans-Voix possèdent la capacité d'ouverture, justement grâce à leur Puce. Le système est bien huilé. Pourtant il y a une faille. Et l'objet de cette faille vous tient la main à ce moment même. L'entraide entre un Sans-Voix et un Sans-Puce, deux êtres que tout oppose en apparence. Ou presque. Car il y a un Sans-Puce en chacun des Sans-Voix. Il suffit juste de le réveiller.\nEn récupérant une partie de son individualité, de son humanité, "+nameW+" est maintenant capable de s'extraire du contrôle de la Puce et donc par extension de la surveillance du Réseau, mais garde toutes les capacités qu'elle lui procure. Dans ce cas là il s'agit d'ouvrir une porte, mais cela va bien au delà de ça. Au fur et à mesure de votre périple, vous avez appris plusieurs choses au sujet de la Puce. D'abord, que les Sans-Voix communiquent exclusivement par elle, sur le réseau. Cela explique pourquoi le contact humain, le dialogue a disparu. Les Sans-Voix reçoivent en permanence un flot de données qu'ils doivent réceptionner, traiter et communiquer. Plus de place pour le contact, plus besoin de dialogue direct. Chaque puce est interconnectée avec les autres sur le Réseau. Cela implique une deuxième chose, c'est toute la banque de données qui leur est accessible en continu. L'ancien \"internet\" du 21ème siècle qui était disponible sur les ordinateur est maintenant directement intégrée dans la Puce. Celle-ci étant reliée au cerveau de l'être humain, il a directement accès à des milliards de milliards de ressources. Cela explique notamment les nombreux moments d'absence que vous avez noté chez [N S-V], ainsi que sa prodigieuse capacité d'apprentissage et d'adaptation. Mais vous savez que tout cela n'est pas sans danger pour elle. Parfois, vous la sentez partir et vous savez alors que la Puce reprend le contrôle. Le Réseau est tellement développé, qu'il fait régulièrement des mises à jour. Ces deux derniers jours, elle fut prise à trois reprises d'une insoutenable douleur. La Puce lutte contre sa déviance. Elle essaye de l'éliminer. [N S-v] a pu reprendre le dessus, mais les crises sont de plus en plus violentes. Il faut agir vite. \nVous vous dirigez d'un pas décidé vers l'ascenseur. \nVous arrivez sans encombre au dernier étage du bâtiment. Vous n'avez jamais vu une chose pareille. Des milliers, des millions de câbles sous vos pieds, sous une épaisse couche de verre. Tous ces étages. Tout ce bâtiment. Il ne s'agit que d'un amas de fils électriques, de serveurs et de micro centrales à fusion nucléaire. Partout règne une épaisse couche de poussière. Personne ne semble être repassé par ici depuis sa mise en service. Le Réseau s'auto-suffit à lui même, s'auto-gère, et est capable de faire gérer la société à lui tout seul. Le gouvernement n'existe pas. Le gouvernement, c'est le Réseau. Vous vous dirigez vers ce qui ressemble à un tableau de bord. Sur ce tableau de bord, un gigantesque bouton rouge surmonté d'un écriteau ‘STOP'. Tout cela vous parait tellement facile. Tellement simple, même pour un mauvais film d'action… \nDans un état second, vous prenez la main de "+nameW+"\n\"Ensemble…\"\nLe bouton est enfoncé. Rien ne se passe. Les nombreux voyants de toutes les couleurs clignotent toujours au dessous de vos pieds. Et soudain, tout s'écroule dans votre esprit. Comment avez-vous pu croire que ce serait si facile ? Comment avez vous pu croire qu'un Réseau aussi développé dans le monde entier pouvait être désactivé par un simple bouton ? Perdu face à votre propre échec, vous ne remarquez pas que "+nameW+" n'est pas dans son état normal à côté, jusqu'à qu'elle vous attrape violemment le bras. Retour à la réalité. Ses beaux yeux vert sont à présent recouvert d'un voile noir. Elle se convulse, prise de violents spasmes comme si elle se battait contre quelque chose d'invisible. En fait, c'est tout à fait ça. Vous savez qu'elle lutte. Elle lutte contre la Puce, contre le Réseau. Contre ce qu'on essaye de lui imposer. Vous restez impuissant devant ce sordide spectacle, les sourcils froncés. Pourquoi maintenant ? Y-a-t-il un lien avec le bouton rouge ? Non, bien sur que non, pourquoi y-en aurait-il un ? \n‘Message-envoyé-depuis-le-Laboratoire-#00786223'\nCette voix métallique émanait depuis "+nameW+". Comme d'habitude quand elle parle, ses lèvres ne bougent pas. Pourtant, vous savez que cette fois, cette voix n'est pas sienne. \n‘Message adressé-à-Puce-n°-008714577-et-Sans-Puce-n°00168'\nVous etes pris de nausées. Ce \"Laboratoire\" est en train de se servir de "+nameW+" pour communiquer leur message. Comme un haut-parleur. Un vulgaire objet numéroté.\n‘Les-sujets-ont-été-les-objets-d-une-expérimentation-depuis-21/05/2171.\nObjets-de-l-expérimentation.\nTester-la-relation-Puce-Sans-Puce.\nRécolter-des-données-pour-contrôler-et-prévenir-la-DÉVIANCE-chez-les-Puces.\nRécolter-des-données-pour-contrôler-et-prévenir-les-RÉVOLTES-chez-les-Sans-Puces.\nRésultat-de-l-expérimentation.\nSuccès.\nLes-sujets-sont-parvenus-au-bouton-rouge.\n108029-données-récoltés-sur-la-Puce-n°-00871477.\n007798-données-récoltées-sur-le-Sans-Puce-n°00168.'\nPause. Abasourdi. Depuis le début, vous n'etes que des rats de laboratoire. Vous n'avez pas le temps de réfléchir plus.\n‘Suite-de-l'opération.\nLe-Sans-Puce-est-libre. La-Puce-va-être-réinitialisée.'\nRéinitialisée ??... \nNON ! \n\""+nameW+" !! "+nameW+" !!! Reprends le dessus, reprends le contrôle !!\" Vous la secouez dans tous les sens. Pas de réaction. Elle reste immobile dans vos bras et n'oppose aucune résistance. Les larmes commencent à vous monter aux yeux. Elle ne peut pas être \"réinitialisée\", elle ne peut pas oublier tout ça, tout ce que vous avez vécu ensemble, elle ne peut pas… redevenir un numéro sans âme et sans conscience…\n\"TU NE PEUX PAS !!!\" Face à son inaction, et à votre propre inefficacité, les larmes coulent carrément sur vos joues. Elle est peut-être en train d'oublier en ce moment-même… De redevenir objet du Réseau… En fait, [N SV] avait toujours été, comme vous, objet du Réseau. Vos pensées se brouillent et se mélangent dans votre esprit. Vous ne vous etes jamais senti aussi impuissant, aussi inutile. Soudain, [N SV] s'écroulent dans vos bras. Même ses pieds ne la tiennent plus. Les spasmes reprennent. Un combat est en train de se jouer en elle en ce moment-même.\nTout est flou. Trouble. Confus. Un brouillard ambiant recouvre tout l'espace. Une sorte de poussière épaisse. Une forte lumière tente de passer au travers. Cette lumière, blanche, est irisée par endroit. Assourdissant. Un bruit sourd et vague l'enveloppait de toute part. Comme si elle était immergée dans l'eau. Sauf qu'ici, l'eau est brumeuse. De toute part, des ombres semblent se déplacer à une vitesse folle. "+nameW+" est debout. Droite. Regard au loin. Elle ne panique pas. Elle sait pourquoi elle est là. Elle sait ce que tout ceci signifie. Elle ferme les yeux. Elle se concentre. Sans se concentrer, elle ne peut pas le vaincre. Elle a besoin de le voir. Pour le faire apparaître. Sous qu'elle forme peut-elle l'imaginer ? Il n'y a qu'une seule chose qui lui vient. Comme une évidence. Mais elle ne veut pas faire ça. Elle ne veut pas. Elle essaie de se concentrer de nouveau. Mais rien ne vient. Elle ne veut pas faire ça. L'image reste fixée dans son esprit. Elle ne veut pas faire ça. Pourtant, elle sait que lorsqu'elle ouvrira les yeux, Il sera là. Sous sa forme. Elle ne veut pas faire ça. Qu'est-ce que tout cela signifie ? Pourquoi elle ? Elle ne veut pas faire ça. Mais elle le doit. Ses yeux s'ouvrent. Ophélie. Ophélie, la soeur de "+name+". Ophélie, celle qu'elle avait vue sur la photo dans le cadre se tenait devant elle. Pourquoi elle ? Pourquoi c'était elle qui était apparue dans son esprit ? Pourquoi avait-il pris la forme de l'innocence de cette enfant ? Peu importe.";
 		String gun = ""+nameW+" sort le flingue de sa veste. Son bras se lève, doucement, mais sans fléchir, imperturbable. Toutes deux se regardent dans les yeux. Aucune ne bronche. Quelques secondes s'écoulent. Puis la détonation fait vibrer l'air ambiant. Plus rien ne bouge encore quelque temps, puis le petit corps frêle d'Ophélie s'écroule par terre. La brume a disparu. Vide.";
 		String knife = ""+nameW+" sort le couteau de sa veste. Elle fait trois pas jusqu'à se retrouver devant Ophélie. Sans un once d'hésitation, sans émotion, elle plante avec force le couteau dans le ventre de la fillette. Pas un cri. Plus de mouvement.Toutes deux se regardent dans les yeux. Aucune ne bronche. Quand elle retire le couteau, le petit corps frêle d'Ophélie s'écroule par terre. La brume a disparu. Vide.";
-		String chap13 = "Le temps vous semble infiniment long. Beaucoup plus long que d'habitude. "+nameW+" est toujours étendue dans vos bras, et vous ne pouvez rien faire de plus que d'attendre. \nSoudain, sursaut. "+nameW+" reprend sa respiration comme si elle sortait soudain la tête de l'eau. Paniqué, inquiet, vous la serrez entre vos bras.\n\"Que s'est-il passé ?\"\nElle cligne plusieurs fois des paupières, un rictus inhabituel sur le visage avant d'ouvrir la bouche et de déclarer d'une voix étouffée :\n\"J'ai vaincu le Réseau\"  \nSoudain, plusieurs choses vous sautent aux yeux. D'abord, "+nameW+" a parlé ! Ses lèvres ont d'elles-même, et pour la toute première fois, articulé ces quatre mots !! Ensuite, vous remarquez que les lumières clignotantes sous vos pieds sont désormais éteintes. Vous aviez réussi ! Vous ne savez pas encore comment, mais "+nameW+" a réussi à mettre fin au Réseau ! Ce qui signifie que… Les Puces sont à présent désactivées. L'humanité va pouvoir reprendre sa juste place. Les sentiments, les émotions vont pouvoir renaître. Un sourire se forme sur votre visage. Vous avez pris votre revanche sur ce qui vous a volé votre soeur et votre mère. Vous etes parvenu avec succès à vos fins. Vous allez maintenant pouvoir écouler des jours heureux avec "+nameW+" redevenue 100% humaine, et reconstruire ensemble, et avec tous les anciens Sans-Voix et Sans-Puces, un avenir honnête et vrai. N'y tenant plus, vous vous apprêtez à serrer "+nameW+" dans vos bras, à lui exprimer tout votre bonheur, votre fierté et votre amour. Mais très vite, vous vous rendez compte que quelque chose ne va pas. Le rictus sur son visage n'a cessé de s'accentuer. "+nameW+" paraît souffrir. Énormément. Ses yeux sont exorbités, ses dents serrées, et malgré l'obscurité ambiante, vous vous apercevez que sa peau n'a jamais été aussi blanche. Pourtant, elle continue de vous regarder, de vous sourire. Au fond de vous, le bonheur laisse place à une profonde terreur.\n\"Q-Que t'arrive-t-il ?\"\n\"Je…\"\nChaque mot semble lui coûter de l'énergie.\n\""+name+"... J-Je ne devais pas te dire...\"\nVous etes abasourdi. Vous ne comprenez pas. Comment la situation a-t-elle pu basculer aussi rapidement ? Pourquoi la panique est-elle entrain de vous submerger ? Mille questions se bousculent sur vos lèvres, mais vous ne parvenez qu'à prononcer :\n\"Pourquoi ?\"\n\"Pour te protéger.\"\n\"Me protéger ?\"\nSilence.\n\"Me protéger de quoi "+nameW+" ?\"\nSa peau est tellement pâle qu'il semblerait presque qu'on pourrait voir à travers. "+nameW+" ouvre la bouche à plusieurs reprises, mais elle paraît avoir de plus en plus de mal à respirer.\n\"Les S-Sans-Voix sont devenus dépendants… dépendants des Puces.\"\nRespiration sacadée.\n\"Leur métabolisme…\" \nLes larmes vous montent aux yeux à la voir se contorsionner ainsi de douleur. Elle use de toutes ses forces pour continuer à parler.\n\"Leur métabolisme ne sait pas fonctionner sans la Puce. Mon métabolisme...\"\nLes larmes coulent.\n\"Je suis dépendante…\"\nLa pensée qui se forme dans votre esprit traverse vos lèvres sans que vous ne vous en rendiez compte.\n\"Tu vas mourir…\"\nSilence.\n\"Tu le savais… Tu l'as toujours su... Mais tu me l'as caché… Parce que je t'ai appris à protéger les gens qu'on aim...\"\nLa culpabilité, la haine vous bloque la gorge.\n\"Je ne t'aime pas.\"\nC'est comme si vous vous preniez un coup de poignard en plein coeur.\n\"Je ne peux pas t'aimer. Je ne peux pas éprouver de vrais sentiments. J-Je ne suis qu'une Puce !\" Hoquetement. Elle essaie de vous sourire.\n\"Le Réseau m'a volé cette faculté. Je devais la rendre à l'Homme.\"\nDernier soupir.\nElle gisait là dans vos bras, les yeux grand ouverts dans le vide. Son corps était déjà froid. Une image s'impose alors dans votre esprit. Des milliers, des millions, des milliards de corps d'êtres humains étendus partout dans la ville, et dans le monde entier. Vous vouliez sauver ce que vous pensiez être la \"vraie\" humanité. Vous avez causé la mort de milliard d'êtres humains. \n\nPouvez-vous toujours vous considérer humain, vous, qui avez causé la mort de tant de personnes ?\n\"Les S-Sans-Voix sont devenus dépendants… dépendants des Puces.\"\nRespiration sacadée.\n\"Leur métabolisme…\" \nLes larmes vous montent aux yeux à la voir se contorsionner ainsi de douleur. Elle use de toutes ses forces pour continuer à parler.\n\"Leur métabolisme ne sait pas fonctionner sans la Puce. Mon métabolisme...\"\nLes larmes coulent.\n\"Je suis dépendante…\"\nLa pensée qui se forme dans votre esprit traverse vos lèvres sans que vous ne vous en rendiez compte.\n\"Tu vas mourir…\"\nSilence.\n\"Tu le savais… Tu l'as toujours su... Mais tu me l'as caché… Parce que je t'ai appris à protéger les gens qu'on aim...\"\nLa culpabilité, la haine vous bloque la gorge.\n\"Je ne t'aime pas.\"\nC'est comme si vous vous preniez un coup de poignard en plein coeur.\n\"Je ne peux pas t'aimer. Je ne peux pas éprouver de vrais sentiments. J-Je ne suis qu'une Puce !\" Hoquetement. Elle essaie de vous sourire.\n\"Le Réseau m'a volé cette faculté. Je devais la rendre à l'Homme.\"\nDernier soupir.\nElle gisait là dans vos bras, les yeux grand ouverts dans le vide. Son corps était déjà froid. Une image s'impose alors dans votre esprit. Des milliers, des millions, des milliards de corps d'êtres humains étendus partout dans la ville, et dans le monde entier. Vous vouliez sauver ce que vous pensiez être la \"vraie\" humanité. Vous avez causé la mort de milliard d'êtres humains. \n\nPouvez-vous toujours vous considérer humain, vous, qui avez causé la mort de tant de personnes ?";
-		noChoiceStory(chap11_2, sc);
-		noChoiceStory(draft, sc);
-		noChoiceStory(chap12, sc);
+		String chap13 = "Le temps vous semble infiniment long. Beaucoup plus long que d'habitude. "+nameW+" est toujours étendue dans vos bras, et vous ne pouvez rien faire de plus que d'attendre. \nSoudain, sursaut. "+nameW+" reprend sa respiration comme si elle sortait soudain la tête de l'eau. Paniqué, inquiet, vous la serrez entre vos bras.\n\"Que s'est-il passé ?\"\nElle cligne plusieurs fois des paupières, un rictus inhabituel sur le visage avant d'ouvrir la bouche et de déclarer d'une voix étouffée :\n\"J'ai vaincu le Réseau\"  \nSoudain, plusieurs choses vous sautent aux yeux. D'abord, "+nameW+" a parlé ! Ses lèvres ont d'elles-même, et pour la toute première fois, articulé ces quatre mots !! Ensuite, vous remarquez que les lumières clignotantes sous vos pieds sont désormais éteintes. Vous aviez réussi ! Vous ne savez pas encore comment, mais "+nameW+" a réussi à mettre fin au Réseau ! Ce qui signifie que… Les Puces sont à présent désactivées. L'humanité va pouvoir reprendre sa juste place. Les sentiments, les émotions vont pouvoir renaître. Un sourire se forme sur votre visage. Vous avez pris votre revanche sur ce qui vous a volé votre soeur et votre mère. Vous etes parvenu avec succès à vos fins. Vous allez maintenant pouvoir écouler des jours heureux avec "+nameW+" redevenue 100% humaine, et reconstruire ensemble, et avec tous les anciens Sans-Voix et Sans-Puces, un avenir honnête et vrai. N'y tenant plus, vous vous apprêtez à serrer "+nameW+" dans vos bras, à lui exprimer tout votre bonheur, votre fierté et votre amour. Mais très vite, vous vous rendez compte que quelque chose ne va pas. Le rictus sur son visage n'a cessé de s'accentuer. "+nameW+" paraît souffrir. Énormément. Ses yeux sont exorbités, ses dents serrées, et malgré l'obscurité ambiante, vous vous apercevez que sa peau n'a jamais été aussi blanche. Pourtant, elle continue de vous regarder, de vous sourire. Au fond de vous, le bonheur laisse place à une profonde terreur.\n\"Q-Que t'arrive-t-il ?\"\n\"Je…\"\nChaque mot semble lui coûter de l'énergie.\n\""+name+"... J-Je ne devais pas te dire...\"\nVous etes abasourdi. Vous ne comprenez pas. Comment la situation a-t-elle pu basculer aussi rapidement ? Pourquoi la panique est-elle entrain de vous submerger ? Mille questions se bousculent sur vos lèvres, mais vous ne parvenez qu'à prononcer :\n\"Pourquoi ?\"\n\"Pour te protéger.\"\n\"Me protéger ?\"\nSilence.\n\"Me protéger de quoi "+nameW+" ?\"\nSa peau est tellement pâle qu'il semblerait presque qu'on pourrait voir à travers. "+nameW+" ouvre la bouche à plusieurs reprises, mais elle paraît avoir de plus en plus de mal à respirer.\n\"Les S-Sans-Voix sont devenus dépendants… dépendants des Puces.\"\nRespiration sacadée.\n\"Leur métabolisme…\" \nLes larmes vous montent aux yeux à la voir se contorsionner ainsi de douleur. Elle use de toutes ses forces pour continuer à parler.\n\"Leur métabolisme ne sait pas fonctionner sans la Puce. Mon métabolisme...\"\nLes larmes coulent.\n\"Je suis dépendante…\"\nLa pensée qui se forme dans votre esprit traverse vos lèvres sans que vous ne vous en rendiez compte.\n\"Tu vas mourir…\"\nSilence.\n\"Tu le savais… Tu l'as toujours su... Mais tu me l'as caché… Parce que je t'ai appris à protéger les gens qu'on aim...\"\nLa culpabilité, la haine vous bloque la gorge.\n\"Je ne t'aime pas.\"\nC'est comme si vous vous preniez un coup de poignard en plein coeur.\n\"Je ne peux pas t'aimer. Je ne peux pas éprouver de vrais sentiments. J-Je ne suis qu'une Puce !\" Hoquetement. Elle essaie de vous sourire.\n\"Le Réseau m'a volé cette faculté. Je devais la rendre à l'Homme.\"\nDernier soupir.\nElle gisait là dans vos bras, les yeux grand ouverts dans le vide. Son corps était déjà froid. Une image s'impose alors dans votre esprit. Des milliers, des millions, des milliards de corps d'êtres humains étendus partout dans la ville, et dans le monde entier. Vous vouliez sauver ce que vous pensiez être la \"vraie\" humanité. Vous avez causé la mort de milliard d'êtres humains. \n\nPouvez-vous toujours vous considérer humain, vous, qui avez causé la mort de tant de personnes ?";
+		splitString(chap11_2, sc);
+		splitString(draft, sc);
+		splitString(chap12, sc);
 		if(weapon == true) {
-			noChoiceStory(gun, sc);
+			splitString(gun, sc);
 		}else{
-			noChoiceStory(knife, sc);
+			splitString(knife, sc);
 		}
-		noChoiceStory(chap13, sc);
-	}
-	
-	
-	
-	
-	
-	
-	// No choice story function
-	public static void noChoiceStory(String script, Scanner sc) {
-		splitString(script, sc);
+		splitString(chap13, sc);
+		System.out.println("------------Fin du jeu----------------");
+		sc.next();
+		System.out.println("___  __ _______ _______ ___ ______ ______ ___   __\n| |  || | |  || | |  || | | _____/ | |  | | |   ||\n| |  || | |  || | |  || | |     /  | |  | | |\\  ||\n| |__|| | |  || | |  || | |    /   | |  | | |\\\\ ||\n| |__|| | |  || | |____ | |   /    | |  | | | \\\\||\n| |  || | |  || | | \\\\  | |  /     | |  | | |  \\||\n| |  || | |  || | |  \\\\ | | /____  | |  | | |   \\|\n___  __ _______ ___   _ ___ _____  ______ ___   __\n\n\n                      ______ ____ ______  ____\n                           |   ||     ||    ||\n                      _____|   ||    _||    ||\n                      ||       ||     ||    ||\n                      ||____   __     __    __\n\n\n\n\n                AstraleK/ATTSSystem\n                \u00a9All rights reserved\nMerci d'avoir joué ! Une nouvelle version sera bientôt disponible :\n https://attssystem.fr/#Horizon2171");
 	}
 	
 	// Story function (just copy for each step)
@@ -166,41 +159,6 @@ public class CSS {
 		boolean loop = true;
 		String input = "";
 		String error = "";
-		
-		// Shows status bars ("Humanité", "Relation", "État du réseau");
-		if(status[4] == 1) {
-			System.out.print("                                                                     Humanité       [");
-			for(int i = 0; i < 20; i++) {
-				if(i < status[1]) {
-					System.out.print("=");
-				}else {
-					System.out.print(" ");
-				}
-			}
-			System.out.println("]");
-		}
-		if(status[5] == 1) {
-			System.out.print("                                                                     Relation       [");
-			for(int i = 0; i < 20; i++) {
-				if(i < status[2]) {
-					System.out.print("=");
-				}else {
-					System.out.print(" ");
-				}
-			}
-			System.out.println("]");
-		}
-		if(status[6] == 1) {
-			System.out.print("                                                                     État du réseau [");
-			for(int i = 0; i < 20; i++) {
-				if(i < status[3]) {
-					System.out.print("=");
-				}else {
-					System.out.print(" ");
-				}
-			}
-			System.out.println("]");
-		}
 		
 		// Story loop (loop in case of wrong input)
 		
@@ -254,9 +212,44 @@ public class CSS {
 		System.out.println();
 		System.out.println("-----------------------------------------------------------------------------------------");
 		System.out.println("                             HORIZON 2171 : "+status[7]);
+		System.out.println("                             -----------------");
+		
+		// Shows status bars ("Humanité", "Relation", "État du réseau");
+		if(status[4] == 1) {
+			System.out.print("                    Humanité       [");
+			for(int i = 0; i < 20; i++) {
+				if(i < status[1]) {
+					System.out.print("=");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println("]");
+		}
+		if(status[5] == 1) {
+			System.out.print("                    Relation       [");
+			for(int i = 0; i < 20; i++) {
+				if(i < status[2]) {
+					System.out.print("=");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println("]");
+		}
+		if(status[6] == 1) {
+			System.out.print("                    État du réseau [");
+			for(int i = 0; i < 20; i++) {
+				if(i < status[3]) {
+					System.out.print("=");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println("]");
+		}
 		System.out.println("-----------------------------------------------------------------------------------------");
-		System.out.println();
-		System.out.println();
+
 		
 		status[7] ++;
 		
@@ -265,8 +258,8 @@ public class CSS {
 	
 	public static List<String> splitString(String msg, Scanner sc) {
         List<String> res = new ArrayList<String>();
-        int lineSize = 80;
-        int lineNm = 20;
+        int lineSize = 90;
+        int lineNm = 19;
         int i = 0;
 
         Pattern p = Pattern.compile("\\b.{1," + (lineSize-1) + "}\\b\\W?");
@@ -277,8 +270,7 @@ public class CSS {
             pause(50);
             res.add(m.group());
             if(i >= lineNm) {
-				System.out.println("---------------------------------------------");
-				System.out.println(" Tapez \"s\" puis Entrée pour lire la suite");
+				System.out.println("------------Fin de paragraphe----------------");
 				sc.next();
 				System.out.println("---------------------------------------------");
 				i = 0;
