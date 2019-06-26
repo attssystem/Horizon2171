@@ -83,7 +83,7 @@ public class CSS {
 		if(status[0] == 1) {
 			splitString(chap3_choice, sc);
 		}
-		storyBlock(chap4, "AGGRESSIF", "CALME", 0, 0, 0, 0, 2, 0, status, sc);
+		storyBlock(chap4, "AGGRESSIF", "CALME", 0, 0, 0, 0, 0, 0, status, sc);
 		status = chapter(status);
 		if(status[0] == 1) {
 			splitString(chap4_choice, sc);
@@ -154,6 +154,12 @@ public class CSS {
 		System.out.println("___  __ _______ _______ ___ ______ ______ ___   __\n| |  || | |  || | |  || | | _____/ | |  | | |   ||\n| |  || | |  || | |  || | |     /  | |  | | |\\  ||\n| |__|| | |  || | |  || | |    /   | |  | | |\\\\ ||\n| |__|| | |  || | |____ | |   /    | |  | | | \\\\||\n| |  || | |  || | | \\\\  | |  /     | |  | | |  \\||\n| |  || | |  || | |  \\\\ | | /____  | |  | | |   \\|\n___  __ _______ ___   _ ___ _____  ______ ___   __\n\n\n                      ______ ____ ______  ____\n                           |   ||     ||    ||\n                      _____|   ||    _||    ||\n                      ||       ||     ||    ||\n                      ||____   __     __    __\n\n\n\n\n                AstraleK/ATTSSystem\n                \u00a9All rights reserved\nMerci d'avoir joué ! Une nouvelle version sera bientôt disponible :\n https://attssystem.fr/#Horizon2171");
 	}
 	
+	public static void clearScreen() {
+		for(int i = 0; i < 50; i++) {
+			System.out.println();
+		}
+	}
+	
 	// Story function (just copy for each step)
 	public static int[] storyBlock(String script, String choice1, String choice2, int humanity1, int relationship1, int networkStatus1, int humanity2, int relationship2, int networkStatus2 , int[] status, Scanner sc) {
 		boolean loop = true;
@@ -190,12 +196,6 @@ public class CSS {
 		return status;
 	}
 	
-	public static void clearScreen() {  
-		for(int i = 0; i < 30; i++) {
-			System.out.println();
-		}
-	}
-	
 	public static void pause(int ms) {
 		try
 		{
@@ -210,13 +210,21 @@ public class CSS {
 	public static int[] chapter(int[] status) {
 		System.out.println();
 		System.out.println();
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("                             HORIZON 2171 : "+status[7]);
-		System.out.println("                             -----------------");
+		System.out.println("     ------------------------------------------------------------------------");
 		
 		// Shows status bars ("Humanité", "Relation", "État du réseau");
 		if(status[4] == 1) {
-			System.out.print("                    Humanité       [");
+			System.out.print("     Humanité               ");
+		}if(status[5] == 1) {
+			System.out.print("| Relation               ");
+		}if(status[6] == 1) {
+			System.out.print("| État du réseau");
+		}
+		System.out.println();
+		if(status[4] == 1) {
+			System.out.print("     [");
 			for(int i = 0; i < 20; i++) {
 				if(i < status[1]) {
 					System.out.print("=");
@@ -224,10 +232,9 @@ public class CSS {
 					System.out.print(" ");
 				}
 			}
-			System.out.println("]");
-		}
-		if(status[5] == 1) {
-			System.out.print("                    Relation       [");
+			System.out.print("] ");
+		}if(status[5] == 1) {
+			System.out.print("| [");
 			for(int i = 0; i < 20; i++) {
 				if(i < status[2]) {
 					System.out.print("=");
@@ -235,10 +242,9 @@ public class CSS {
 					System.out.print(" ");
 				}
 			}
-			System.out.println("]");
-		}
-		if(status[6] == 1) {
-			System.out.print("                    État du réseau [");
+			System.out.print("] ");
+		}if(status[6] == 1) {
+			System.out.print("| [");
 			for(int i = 0; i < 20; i++) {
 				if(i < status[3]) {
 					System.out.print("=");
@@ -246,9 +252,10 @@ public class CSS {
 					System.out.print(" ");
 				}
 			}
-			System.out.println("]");
+			System.out.print("] ");
 		}
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------");
 
 		
 		status[7] ++;
