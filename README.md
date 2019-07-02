@@ -4,7 +4,7 @@ This french game tells you the story of a futuristic dystopic world. You personi
 
 ## Jar creation reminder
 
-`jar cvfm Horizon2171.jar MANIFEST.MF CSS.class` 
+`jar cvfm Horizon2171.jar MANIFEST.MF *.class` 
 
 ## Authors
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
-  <headerType>console</headerType>
-  <jar>C:\Users\Hugues KADI\Desktop\CSS_Game\Horizon2171.jar</jar>
-  <outfile>C:\Users\Hugues KADI\Desktop\CSS_Game\Horizon2171.exe</outfile>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Hugues KADI\Desktop\CSS_Game - Graphic\Horizon2171.jar</jar>
+  <outfile>C:\Users\Hugues KADI\Desktop\CSS_Game - Graphic\Horizon2171.exe</outfile>
   <errTitle></errTitle>
-  <cmdLine>java -jar Horizon2171.jar</cmdLine>
+  <cmdLine>javaw -jar Horizon2171.jar</cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
   <downloadUrl>http://java.com/download</downloadUrl>
